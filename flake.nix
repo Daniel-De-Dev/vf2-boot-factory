@@ -12,6 +12,16 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+
+    src-opensbi = {
+      url = "github:riscv-software-src/opensbi";
+      flake = false;
+    };
+
+    src-uboot = {
+      url = "github:u-boot/u-boot";
+      flake = false;
+    };
   };
 
   outputs =
@@ -19,10 +29,14 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
-      imports = [ inputs.standards.flakeModules.default ];
+      imports = [
+        inputs.standards.flakeModules.default
+        ./nix/parts/devshells.nix
+        ./nix/parts/opensbi.nix
+        ./nix/parts/uboot.nix
+        ./nix/parts/combinations.nix
+      ];
 
-      perSystem = _: {
-        # Local project configurations go here
-      };
+      perSystem = _: { };
     };
 }

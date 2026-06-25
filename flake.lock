@@ -53,7 +53,41 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
+        "src-opensbi": "src-opensbi",
+        "src-uboot": "src-uboot",
         "standards": "standards"
+      }
+    },
+    "src-opensbi": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1781676818,
+        "narHash": "sha256-TwF4ha1F6PXlqyvEKevjNqiT3a5yZr4FhW4KwK7r52A=",
+        "owner": "riscv-software-src",
+        "repo": "opensbi",
+        "rev": "a8be5e9478be08f09a720f7013ec30d6e2bd9fcc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "riscv-software-src",
+        "repo": "opensbi",
+        "type": "github"
+      }
+    },
+    "src-uboot": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1782316954,
+        "narHash": "sha256-BODJN6GIslI9iW9/qnCdwZHd9KHmuDnxfELUlgxmQL8=",
+        "owner": "u-boot",
+        "repo": "u-boot",
+        "rev": "77a48fa272161df9b778ffc09af814eec11cddd2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "u-boot",
+        "repo": "u-boot",
+        "type": "github"
       }
     },
     "standards": {
@@ -67,11 +101,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1782315991,
-        "narHash": "sha256-n9mXm+XNd8Ifuxw4VnTRmqlwQwIaDzMb8npGPhwTnZQ=",
+        "lastModified": 1782347892,
+        "narHash": "sha256-GvdyaYA4arTrx+tJV99CIm9CdCgdmFjLku+7HLN5+u8=",
         "owner": "Daniel-De-Dev",
         "repo": "flake-standards",
-        "rev": "1ef94f159e2db537b728a884e0603b006148ce56",
+        "rev": "c0e0f7fe2b1aeca49bd55a79c7115cb3dd7d0a0c",
         "type": "github"
       },
       "original": {
