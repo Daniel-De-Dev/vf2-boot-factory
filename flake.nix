@@ -34,7 +34,7 @@
         ./nix/parts/devshells.nix
         ./nix/parts/opensbi.nix
         ./nix/parts/uboot.nix
-        ./nix/parts/combinations.nix
+        ./nix/parts/bundle.nix
       ];
 
       perSystem = _: { };

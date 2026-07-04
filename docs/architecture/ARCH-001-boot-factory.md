@@ -6,7 +6,7 @@ status: active
 applies_to:
   - flake.nix
   - nix/parts/**
-last_updated: 2026-06-25
+last_updated: 2026-07-04
 ---
 
 > [!summary]
@@ -14,24 +14,17 @@ last_updated: 2026-06-25
 
 # 1. Responsibilities
 
-- **OpenSBI (`opensbi.nix`)**: Defines build steps for OpenSBI as a dynamic
-  firmware (`fw_dynamic.bin`).
-- **U-Boot (`uboot.nix`)**: Defines build steps for U-Boot SPL and U-Boot
-  bootloader.
-- **Combinations (`combinations.nix`)**: Glues OpenSBI and U-Boot output into
-  unified flashable bundle.
-- **Devshells (`devshells.nix`)**: Provides shell environment with tools and
-  helper scripts to boot using usart.
+- **OpenSBI (`opensbi.nix`)**: Defines build steps for OpenSBI as dynamic firmware.
+- **U-Boot (`uboot.nix`)**: Defines build steps for U-Boot SPL and U-Boot bootloader.
+- **Bundle (`bundle.nix`)**: Glues OpenSBI and U-Boot output into unified flashable bundle.
+- **Devshells (`devshells.nix`)**: Provides shell environment with tools and helper script to boot using USART.
 
 # 2. Data and Dependency Flow
 
 1. Fetch upstream sources as Nix flake inputs.
-2. Compile the firmwares from source directly.
-3. `mkBootBundle` collects SPL and payload into final flashable targets directory.
-
-_Currently only a single bundle if implemented_
+2. Compile firmwares from source directly.
+3. `bundle.nix` collects Phase 1 SPL and Phase 2 payload into final flashable targets directory.
 
 # 3. Boundaries
 
-Dilebiratly implement in a modular way to allow for swapping out the individual
-implementations.
+Implement standard bootchain (U-Boot SPL -> OpenSBI -> U-Boot proper).
